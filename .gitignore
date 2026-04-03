@@ -1,2 +1,8 @@
-.vscode
-build
+build/
+*.o
+*.out
+*.exe
+
+.vscode/
+
+.DS_Store

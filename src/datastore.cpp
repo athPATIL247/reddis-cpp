@@ -23,7 +23,6 @@ std::string DataStore::get(const std::string& key) {
 
     auto [value, expiry] = store[key];
 
-    // Check expiry
     if (expiry != -1 && getCurrentTime() > expiry) {
         store.erase(key);
         return "(nil)";

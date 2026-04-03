@@ -66,9 +66,17 @@ void Server::start()
 
             std::string command = tokens[0];
 
-            if (command == "SET" && tokens.size() >= 3)
-            {
-                datastore.set(tokens[1], tokens[2]);
+            if (command == "SET" && tokens.size() >= 3) {
+                std::string key = tokens[1];
+                std::string value = tokens[2];
+                int ttl = -1;
+
+                if (tokens.size() >= 5 && tokens[3] == "EX") {
+                    ttl = std::stoi(tokens[4]);
+                }
+
+                datastore.set(key, value, ttl);
+
                 std::string response = "+OK\r\n";
                 send(client_socket, response.c_str(), response.size(), 0);
             }
