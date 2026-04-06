@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall
 
-SRC = src/main.cpp src/server.cpp src/client_handler.cpp src/datastore.cpp src/parser.cpp
+SRC = src/main.cpp src/server.cpp src/datastore.cpp src/parser.cpp
 OUT = build/redis_server
 
 all:
